@@ -26,6 +26,9 @@ class TextStyles {
       fontWeight: FontWeight.w500,
       color: Colors.white);
 
+  static const white24 =
+      TextStyle(fontFamily: 'TheJamsil', fontSize: 24, color: Colors.white);
+
   static const mainMedium48 = TextStyle(
       fontFamily: 'TheJamsil',
       fontSize: 48,
@@ -37,4 +40,17 @@ class TextStyles {
       fontSize: 24,
       fontWeight: FontWeight.bold,
       color: ColorStyles.parentmain);
+
+  static const regular20 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 20,
+      fontWeight: FontWeight.normal,
+      color: Colors.black);
+
+  static const grey14underline = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: Colors.grey,
+      decoration: TextDecoration.underline);
 }

@@ -13,19 +13,26 @@ class StartPage extends StatefulWidget {
 class _StartPageState extends State<StartPage> {
   final ScrollController _scrollController = ScrollController();
 
-  // 2초 후에 화면 아래로 스크롤하는 함수
-  void scrollToBottom() {
-    _scrollController.animateTo(
-      _scrollController.position.maxScrollExtent,
-      duration: Duration(seconds: 1),
-      curve: Curves.ease,
-    );
+  // 스크롤 이동 메소드
+  void moveScroll(double loc) {
+    final double newScrollPosition = _scrollController.offset + loc;
+    _scrollController.animateTo(newScrollPosition,
+        duration: const Duration(milliseconds: 1200), curve: Curves.easeInOut);
   }
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), scrollToBottom);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // MediaQuery를 사용하여 화면의 높이를 얻음
+      double screenHeight = MediaQuery.of(context).size.height;
+
+      // 2초 후에 화면 아래로 스크롤
+      Future.delayed(const Duration(seconds: 2), () {
+        moveScroll(screenHeight);
+      });
+    });
   }
 
   @override
@@ -107,7 +114,9 @@ class _StartPageState extends State<StartPage> {
                       width: _width * 0.9,
                       height: 75,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          moveScroll(_height);
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(35),
@@ -128,6 +137,113 @@ class _StartPageState extends State<StartPage> {
                       ),
                     ),
                   ),
+                ],
+              ),
+            ),
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    ColorStyles.parentmain,
+                    Colors.white,
+                  ],
+                  stops: [0.0, 0.5],
+                ),
+              ),
+              height: _height,
+              child: Column(
+                children: [
+                  const SizedBox(height: 120),
+                  Container(
+                    margin: const EdgeInsets.only(right: 40),
+                    width: 310,
+                    height: 100,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/chat_bubble.png'),
+                          fit: BoxFit.fill),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.only(left: 30, top: 27),
+                      child: Text('"다랑해"에 오신 걸 환영해요\n',
+                          style: TextStyles.regular20),
+                    ),
+                  ),
+                  Row(children: [
+                    const SizedBox(width: 40),
+                    SizedBox(
+                      width: 180,
+                      child: Text('아빠힘내세요엄마힘내세요우리가있잖아요힘내시라고요',
+                          style: TextStyles.content16),
+                    ),
+                    const SizedBox(width: 10),
+                    Image.asset('assets/images/darangi.png', width: 134),
+                  ]),
+                  const SizedBox(height: 50),
+                  const Text('다랑해가 처음이시라면', style: TextStyles.regular20),
+                  const SizedBox(height: 3),
+                  Center(
+                    child: SizedBox(
+                      width: _width * 0.9,
+                      height: 75,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                          elevation: 3,
+                          backgroundColor: ColorStyles.parentmain,
+                          foregroundColor: Colors.white,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/icons/smile.png', width: 23),
+                            const SizedBox(width: 10),
+                            const Text('회원가입', style: TextStyles.white24),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  const Text('이미 계정이 있으시다면', style: TextStyles.regular20),
+                  const SizedBox(height: 3),
+                  Center(
+                    child: SizedBox(
+                      width: _width * 0.9,
+                      height: 75,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                          elevation: 3,
+                          backgroundColor: ColorStyles.childmain,
+                          foregroundColor: Colors.white,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/icons/pointer.png', width: 16),
+                            const SizedBox(width: 10),
+                            const Text('로그인', style: TextStyles.white24),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Expanded(child: SizedBox()),
+                  InkWell(
+                    onTap: () {},
+                    child: const Text('문제가 있나요?',
+                        style: TextStyles.grey14underline),
+                  ),
+                  const SizedBox(height: 30),
                 ],
               ),
             ),
