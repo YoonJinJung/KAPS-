@@ -189,7 +189,9 @@ class _StartPageState extends State<StartPage> {
                       width: _width * 0.9,
                       height: 75,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/childHome');
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(35),
@@ -217,7 +219,9 @@ class _StartPageState extends State<StartPage> {
                       width: _width * 0.9,
                       height: 75,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/parentHome');
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(35),

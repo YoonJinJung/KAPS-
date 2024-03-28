@@ -14,6 +14,15 @@ class TextStyles {
   static const content16 =
       TextStyle(fontFamily: 'TheJamsil', fontSize: 16, color: Colors.black);
 
+  static const content14 =
+      TextStyle(fontFamily: 'TheJamsil', fontSize: 14, color: Colors.black);
+
+  static const contentBold14 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+      color: Colors.black);
+
   static const content12 =
       TextStyle(fontFamily: 'TheJamsil', fontSize: 12, color: Colors.black);
 
