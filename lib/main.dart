@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'TheJamsil',
-        colorScheme: ColorScheme.fromSeed(seedColor: ColorStyles.parentmain),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: ColorStyles.childBackground1),
         useMaterial3: true,
       ),
       routes: {
