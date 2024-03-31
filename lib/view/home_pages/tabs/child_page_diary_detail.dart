@@ -136,6 +136,7 @@ class _DiaryDetailPageState extends State<DiaryDetailPage> {
                                       InkWell(
                                         onTap: () {
                                           debugPrint('TTS speaking');
+
                                           speak();
                                         },
                                         child: Icon(Icons.speaker),

@@ -5,6 +5,7 @@ import 'package:daranghae/view/start_pages/page_start.dart';
 import 'package:daranghae/view/home_pages/child_navigation_bar.dart';
 import 'package:daranghae/view/home_pages/tabs/child_tab_home.dart';
 import 'package:daranghae/view/home_pages/parent_navigation_bar.dart';
+import 'package:daranghae/view/home_pages/tabs/parent_tab_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/parentHome': (context) => const ParentNavigationBar(),
         '/childHome': (context) => const ChildNavigationBar(),
         '/childTabHome': (context) => const ChildTabHome(),
+        '/parentTabHome': (context) => const ParentTabHome(),
       },
       initialRoute: '/start',
     );

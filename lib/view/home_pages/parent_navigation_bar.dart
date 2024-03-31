@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
+import 'package:daranghae/view/home_pages/tabs/parent_tab_home.dart';
 
 class ParentNavigationBar extends StatefulWidget {
   const ParentNavigationBar({Key? key}) : super(key: key);
@@ -111,7 +112,7 @@ class _ParentNavigationBarState extends State<ParentNavigationBar>
         ),
       ),
       body: _selectedIndex == 0
-          ? tabContainer(context, Colors.indigo, "일기 Tab")
+          ? ParentTabHome()
           : _selectedIndex == 1
               ? tabContainer(context, Colors.amber, "다이어리 Tab")
               : _selectedIndex == 2
