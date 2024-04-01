@@ -53,12 +53,6 @@ class _ChildTabHomeState extends State<ChildTabHome> {
                 title: '초밥 레시피',
                 content: '초밥은 밥과 재료를 준비하면 끝!'),
             SizedBox(height: 150),
-            Text('맨위', style: TextStyles.content16),
-            SizedBox(height: 1000),
-            Text('중간'),
-            SizedBox(height: 1000),
-            Text('아래'),
-            SizedBox(height: 1000)
           ],
         ),
       ),

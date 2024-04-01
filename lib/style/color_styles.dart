@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class ColorStyles {
   static const Color parentmain = Color(0xFFFF6B62);
-  static const Color childmain = Color(0xFFFFBC78);
+  static const Color childmain = Color(0xFFFF9D38);
+  static const Color childGradient1 = Color(0xFFFFA073);
   static const Color childSub = Color(0xFFFFB060);
   static const Color sub = Color(0xFFFFE98B);
   static const Color grey1 = Color(0xFFF0F0F0);

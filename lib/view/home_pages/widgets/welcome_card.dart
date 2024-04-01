@@ -44,99 +44,94 @@ class WelcomeCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Row(
+                    Row(
                       children: [
-                        Text('  안녕하세요 ', style: TextStyles.titleMedium24),
-                        Text('김효정', style: TextStyles.childMedium24),
-                        Text('님,', style: TextStyles.titleMedium24),
+                        const Text('  안녕하세요 ', style: TextStyles.titleMedium24),
+                        Text(name, style: TextStyles.childMedium24),
+                        const Text('님,', style: TextStyles.titleMedium24),
                       ],
                     ),
                     const Text('  좋은 하루예요!', style: TextStyles.titleMedium24),
                     const SizedBox(height: 40),
                     Center(
-                      child: SizedBox(
-                        width: 290,
-                        height: 70,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Navigator.of(context).pushNamed('/parentHome');
-                          },
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // Navigator.of(context).pushNamed('/parentHome');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(290, 70),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          elevation: 3,
+                          surfaceTintColor: Colors.transparent,
+                          backgroundColor: ColorStyles.childmain,
+                          foregroundColor: Colors.white,
+                        ),
+                        child: const Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 5),
+                              child: Icon(Icons.edit_rounded, size: 25),
                             ),
-                            elevation: 3,
-                            backgroundColor: ColorStyles.childmain,
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Row(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Icon(Icons.edit_rounded, size: 25),
-                              ),
-                              SizedBox(width: 10),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('일기쓰기', style: TextStyles.whiteMedium20),
-                                  Text('오늘의 하루를 공유해보세요!',
-                                      style: TextStyles.white14)
-                                ],
-                              ),
-                            ],
-                          ),
+                            SizedBox(width: 10),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('일기쓰기', style: TextStyles.whiteMedium20),
+                                Text('오늘의 하루를 공유해보세요!',
+                                    style: TextStyles.white14)
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     ),
                     const SizedBox(height: 20),
                     Center(
-                      child: SizedBox(
-                        width: 290,
-                        height: 70,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Navigator.of(context).pushNamed('/parentHome');
-                          },
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              side: const BorderSide(
-                                  color: ColorStyles.childmain),
-                              borderRadius: BorderRadius.circular(20),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // Navigator.of(context).pushNamed('/parentHome');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(290, 70),
+                          shape: RoundedRectangleBorder(
+                            side:
+                                const BorderSide(color: ColorStyles.childmain),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          elevation: 3,
+                          surfaceTintColor: Colors.transparent,
+                          backgroundColor: Colors.white,
+                          foregroundColor: ColorStyles.childmain,
+                        ),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              child: Image.asset('assets/icons/glitter.png',
+                                  width: 24),
                             ),
-                            elevation: 3,
-                            surfaceTintColor: Colors.transparent,
-                            backgroundColor: Colors.white,
-                            foregroundColor: ColorStyles.childmain,
-                          ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 5),
-                                child: Image.asset('assets/icons/glitter.png',
-                                    width: 24),
+                            const SizedBox(width: 10),
+                            const SizedBox(
+                              width: 170,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('AI 따라쓰기',
+                                      style: TextStyles.childMedium20),
+                                  Text(
+                                    '"어릴적 부모님이 자주 해주셨던 요리는?"',
+                                    style: TextStyles.child14,
+                                    overflow: TextOverflow.ellipsis,
+                                  )
+                                ],
                               ),
-                              const SizedBox(width: 10),
-                              const SizedBox(
-                                width: 170,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('AI 따라쓰기',
-                                        style: TextStyles.childMedium20),
-                                    Text(
-                                      '"어릴적 부모님이 자주 해주셨던 요리는?"',
-                                      style: TextStyles.child14,
-                                      overflow: TextOverflow.ellipsis,
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

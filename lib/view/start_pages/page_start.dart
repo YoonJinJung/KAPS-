@@ -54,7 +54,7 @@ class _StartPageState extends State<StartPage> {
                     end: Alignment.bottomCenter,
                     colors: [
                       ColorStyles.sub,
-                      ColorStyles.childmain,
+                      ColorStyles.childGradient1,
                       ColorStyles.parentmain
                     ],
                     stops: [0.0, 0.4, 1.0],

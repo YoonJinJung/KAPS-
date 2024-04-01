@@ -121,7 +121,7 @@ class TextStyles {
     fontFamily: 'TheJamsil',
     fontSize: 16,
     fontWeight: FontWeight.w200,
-    color: ColorStyles.grey3,
+    color: ColorStyles.grey4,
   );
 
   static const white16 =
@@ -135,4 +135,46 @@ class TextStyles {
 
   static const parent16 = TextStyle(
       fontFamily: 'TheJamsil', fontSize: 16, color: ColorStyles.parentmain);
+
+  static const parent14 = TextStyle(
+      fontFamily: 'TheJamsil', fontSize: 14, color: ColorStyles.parentmain);
+
+  static const parentMedium24 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 24,
+      fontWeight: FontWeight.w500,
+      color: ColorStyles.parentmain);
+
+  static const whiteMedium14 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: Colors.white);
+
+  static const grey5Medium14 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: ColorStyles.grey5);
+
+  static const grey14 = TextStyle(
+      fontFamily: 'TheJamsil', fontSize: 14, color: ColorStyles.grey4);
+
+  static const whiteMedium18 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+      color: Colors.white);
+
+  static const childMedium18 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+      color: ColorStyles.childmain);
+
+  static const contentMedium14 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: Colors.black);
 }

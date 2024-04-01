@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
+import 'package:daranghae/view/home_pages/widgets/dairy_view_card.dart';
 
 class DiaryDetailPage extends StatefulWidget {
   final DateTime date;
@@ -21,26 +21,6 @@ class DiaryDetailPage extends StatefulWidget {
 }
 
 class _DiaryDetailPageState extends State<DiaryDetailPage> {
-  FlutterTts tts = FlutterTts();
-
-  Future<void> speak() async {
-    await tts.speak(widget.content); // 텍스트 음성 변환 및 재생
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    tts.setLanguage('ko-KR');
-    tts.setVoice({"name": "ko-kr-x-ism-local", "locale": "ko-KR"});
-    tts.setSpeechRate(0.5);
-  }
-
-  @override
-  void dispose() {
-    tts.stop();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -73,108 +53,112 @@ class _DiaryDetailPageState extends State<DiaryDetailPage> {
         ),
         scrolledUnderElevation: 0,
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          width: _width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 640,
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Container(
+                  height: 185,
+                  color: ColorStyles.childmain,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Row(
+                          children: [
+                            SizedBox(width: 15),
+                            Icon(Icons.arrow_back_ios,
+                                size: 20, color: Colors.white),
+                            Text('나가기', style: TextStyles.white16),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 165,
+                  child: DiaryViewCard(
+                      date: widget.date,
+                      content: widget.content,
+                      title: widget.title,
+                      from: '이효정',
+                      to: '김춘자',
+                      relationship: '할머니-손주'),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 15),
+          Container(height: 1, width: 30, color: Colors.black),
+          const SizedBox(height: 15),
+          const Text('오늘 하루는 어땠나요?', style: TextStyles.titleMedium18),
+          const SizedBox(height: 15),
+          const Text('하루를 돌아보며 부모님께서 기다리실\n당신의 반가운 소식을 전해보세요',
+              style: TextStyles.grey14, textAlign: TextAlign.center),
+          const SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                height: 1500,
-                child: Stack(
-                  alignment: Alignment.topCenter,
+              ElevatedButton(
+                onPressed: () {
+                  // Navigator.of(context).pushNamed('/parentHome');
+                },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(158, 45),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  elevation: 3,
+                  surfaceTintColor: Colors.transparent,
+                  backgroundColor: ColorStyles.childmain,
+                  foregroundColor: Colors.white,
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      height: 185,
-                      color: ColorStyles.childSub,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Row(
-                              children: [
-                                SizedBox(width: 15),
-                                Icon(Icons.arrow_back_ios,
-                                    size: 20, color: Colors.white),
-                                Text('나가기', style: TextStyles.white16),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 30),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      top: 165,
-                      child: Column(
-                        children: [
-                          Card(
-                            color: Colors.white,
-                            elevation: 5,
-                            surfaceTintColor: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Container(
-                              width: _width,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 25, vertical: 25),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        DateFormat('yyyy.MM.dd')
-                                            .format(widget.date),
-                                        style: TextStyles.title18,
-                                      ),
-                                      const Expanded(child: SizedBox()),
-                                      InkWell(
-                                        onTap: () {
-                                          debugPrint('TTS speaking');
-
-                                          speak();
-                                        },
-                                        child: Icon(Icons.speaker),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 5),
-                                  const Divider(color: ColorStyles.grey5),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    widget.title,
-                                    style: TextStyles.content16,
-                                  ),
-                                  const SizedBox(height: 15),
-                                  Text(
-                                    widget.content,
-                                    style: TextStyles.contentPreview,
-                                    maxLines: 30,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Container(height: 1, width: 30, color: Colors.black),
-                          const SizedBox(height: 20),
-                          const Text('오늘 하루는 어땠나요?',
-                              style: TextStyles.titleMedium18),
-                        ],
-                      ),
-                    ),
+                    Icon(Icons.edit_rounded, size: 22),
+                    SizedBox(width: 2),
+                    Text('일기 쓰기', style: TextStyles.whiteMedium18)
+                  ],
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigator.of(context).pushNamed('/parentHome');
+                },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(158, 45),
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(
+                        color: ColorStyles.childmain, width: 1),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  elevation: 3,
+                  surfaceTintColor: Colors.transparent,
+                  backgroundColor: Colors.white,
+                  foregroundColor: ColorStyles.childmain,
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.edit_rounded, size: 22),
+                    SizedBox(width: 2),
+                    Text('AI따라쓰기', style: TextStyles.childMedium18)
                   ],
                 ),
               ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
