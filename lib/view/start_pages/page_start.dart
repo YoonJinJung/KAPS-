@@ -149,45 +149,49 @@ class _StartPageState extends State<StartPage> {
                     ColorStyles.parentmain,
                     Colors.white,
                   ],
-                  stops: [0.0, 0.5],
+                  stops: [0.1, 0.5],
                 ),
               ),
               height: _height,
               child: Column(
                 children: [
-                  const SizedBox(height: 120),
+                  const SizedBox(height: 80),
+                  const Text('가족과의 이야기, 낯선 사람들과의 대화, 일상 속 기억까지.',
+                      style: TextStyles.white14),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('\'다랑해\'', style: TextStyles.whiteBold20),
+                      Text('에서 모든 것을 펼쳐보세요.', style: TextStyles.white20),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
                   Container(
-                    margin: const EdgeInsets.only(right: 40),
-                    width: 310,
-                    height: 100,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/chat_bubble.png'),
-                          fit: BoxFit.fill),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 30, top: 27),
-                      child: Text('"다랑해"에 오신 걸 환영해요\n',
-                          style: TextStyles.regular20),
+                    width: 90,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.white54,
+                      borderRadius: BorderRadius.circular(3),
                     ),
                   ),
+                  const SizedBox(height: 30),
+                  Image.asset('assets/images/chat_bubble.png', width: 320),
                   Row(children: [
                     const SizedBox(width: 40),
-                    SizedBox(
+                    const SizedBox(
                       width: 180,
-                      child: Text('아빠힘내세요엄마힘내세요우리가있잖아요힘내시라고요',
-                          style: TextStyles.content16),
+                      // child: Text('설명', style: TextStyles.content16),
                     ),
                     const SizedBox(width: 10),
                     Image.asset('assets/images/darangi.png', width: 134),
                   ]),
                   const SizedBox(height: 50),
-                  const Text('다랑해가 처음이시라면', style: TextStyles.regular20),
+                  const Text('다랑해가 처음이시라면', style: TextStyles.content16),
                   const SizedBox(height: 3),
                   Center(
                     child: SizedBox(
                       width: _width * 0.9,
-                      height: 75,
+                      height: 60,
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).pushNamed('/childHome');
@@ -197,6 +201,7 @@ class _StartPageState extends State<StartPage> {
                             borderRadius: BorderRadius.circular(35),
                           ),
                           elevation: 3,
+                          surfaceTintColor: Colors.transparent,
                           backgroundColor: ColorStyles.parentmain,
                           foregroundColor: Colors.white,
                         ),
@@ -205,19 +210,50 @@ class _StartPageState extends State<StartPage> {
                           children: [
                             Image.asset('assets/icons/smile.png', width: 23),
                             const SizedBox(width: 10),
-                            const Text('회원가입', style: TextStyles.white24),
+                            const Text('이메일로 회원가입', style: TextStyles.white20),
                           ],
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 40),
-                  const Text('이미 계정이 있으시다면', style: TextStyles.regular20),
+                  const SizedBox(height: 10),
+                  Center(
+                    child: SizedBox(
+                      width: _width * 0.9,
+                      height: 60,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/register');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                          elevation: 3,
+                          surfaceTintColor: Colors.transparent,
+                          backgroundColor: ColorStyles.kakaoYellow,
+                          foregroundColor: Colors.white,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/icons/kakao_bubble.png',
+                                width: 23),
+                            const SizedBox(width: 10),
+                            const Text('카카오로 회원가입',
+                                style: TextStyles.regular20),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+                  const Text('이미 계정이 있으시다면', style: TextStyles.content16),
                   const SizedBox(height: 3),
                   Center(
                     child: SizedBox(
                       width: _width * 0.9,
-                      height: 75,
+                      height: 60,
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).pushNamed('/parentHome');
@@ -227,7 +263,8 @@ class _StartPageState extends State<StartPage> {
                             borderRadius: BorderRadius.circular(35),
                           ),
                           elevation: 3,
-                          backgroundColor: ColorStyles.childmain,
+                          surfaceTintColor: Colors.transparent,
+                          backgroundColor: ColorStyles.childGradient1,
                           foregroundColor: Colors.white,
                         ),
                         child: Row(
@@ -235,7 +272,7 @@ class _StartPageState extends State<StartPage> {
                           children: [
                             Image.asset('assets/icons/pointer.png', width: 16),
                             const SizedBox(width: 10),
-                            const Text('로그인', style: TextStyles.white24),
+                            const Text('로그인 하러 가기', style: TextStyles.white20),
                           ],
                         ),
                       ),

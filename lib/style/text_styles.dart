@@ -177,4 +177,46 @@ class TextStyles {
       fontSize: 14,
       fontWeight: FontWeight.w500,
       color: Colors.black);
+
+  static const greyLight14 = TextStyle(
+      fontFamily: 'TheJamsil', fontSize: 14, color: ColorStyles.grey5);
+
+  static const whiteMedium32 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 32,
+      fontWeight: FontWeight.w500,
+      color: Colors.white);
+
+  static const grey10 = TextStyle(
+      fontFamily: 'TheJamsil', fontSize: 10, color: ColorStyles.grey4);
+
+  static const grey13 = TextStyle(
+      fontFamily: 'TheJamsil', fontSize: 13, color: ColorStyles.grey5);
+
+  static const whiteBold20 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: Colors.white);
+
+  static const white20 =
+      TextStyle(fontFamily: 'TheJamsil', fontSize: 20, color: Colors.white);
+
+  static const subMedium20 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 20,
+      fontWeight: FontWeight.w500,
+      color: ColorStyles.childText);
+
+  static const whiteBold16 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: Colors.white);
+
+  static const contentBold16 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: Colors.black);
 }

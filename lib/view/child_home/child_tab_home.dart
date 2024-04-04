@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
-import 'package:daranghae/view/home_pages/widgets/welcome_card.dart';
-import 'package:daranghae/view/home_pages/widgets/diary_card.dart';
+import 'package:daranghae/view/child_home/widgets/welcome_card.dart';
+import 'package:daranghae/view/child_home/widgets/diary_card.dart';
 
 class ChildTabHome extends StatefulWidget {
   const ChildTabHome({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _ChildTabHomeState extends State<ChildTabHome> {
         color: ColorStyles.childBackground1,
         child: Column(
           children: [
-            const WelcomeCard(name: '김효정'),
+            const WelcomeCard(name: '이효정'),
             const SizedBox(height: 25),
             // 오늘 날짜를 DateTime.now() 를 활용하여 2024.03.28 형식으로 표시
             Padding(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
-import 'package:daranghae/view/home_pages/widgets/dairy_view_card.dart';
+import 'package:daranghae/view/child_home/widgets/dairy_view_card.dart';
 
 class DiaryDetailPage extends StatefulWidget {
   final DateTime date;
@@ -110,7 +110,7 @@ class _DiaryDetailPageState extends State<DiaryDetailPage> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  // Navigator.of(context).pushNamed('/parentHome');
+                  Navigator.of(context).pushNamed('/childDiaryField');
                 },
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(158, 45),

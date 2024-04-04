@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
-import 'package:daranghae/view/home_pages/tabs/child_page_diary_detail.dart';
+import 'package:daranghae/view/child_home/child_page_diary_detail.dart';
 
 class DiaryCard extends StatelessWidget {
   final DateTime date;

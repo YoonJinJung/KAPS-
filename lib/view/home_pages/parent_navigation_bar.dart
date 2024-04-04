@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
-import 'package:daranghae/view/home_pages/tabs/parent_tab_home.dart';
+import 'package:daranghae/view/parent_home/parent_tab_home.dart';
+import 'package:daranghae/view/parent_diary/parent_tab_diary.dart';
+import 'package:daranghae/view/parent_community/parent_tab_community.dart';
 
 class ParentNavigationBar extends StatefulWidget {
   const ParentNavigationBar({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class _ParentNavigationBarState extends State<ParentNavigationBar>
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: ColorStyles.parentmain,
+        backgroundColor: ColorStyles.parentAppbar,
         leading: Padding(
           padding: const EdgeInsets.only(left: 10),
           child: Image.asset('assets/icons/heart.png'),
@@ -112,12 +114,11 @@ class _ParentNavigationBarState extends State<ParentNavigationBar>
         ),
       ),
       body: _selectedIndex == 0
-          ? ParentTabHome()
+          ? const ParentTabHome()
           : _selectedIndex == 1
-              ? tabContainer(context, Colors.amber, "다이어리 Tab")
+              ? const ParentTabDiary()
               : _selectedIndex == 2
-                  ? tabContainer(
-                      context, ColorStyles.childBackground1, "Settings Tab")
+                  ? ParentTabCommunity()
                   : tabContainer(context, Colors.green, "Settings Tab"),
     );
   }
