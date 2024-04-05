@@ -13,7 +13,6 @@ class UpperTabQuiz extends StatelessWidget {
       color: Colors.white,
       child: Column(
         children: [
-          //const WelcomeCard(name: '김효정'),
           SizedBox(
             height: 177,
             child: Stack(
@@ -115,9 +114,116 @@ class UpperTabQuiz extends StatelessWidget {
               Image.asset('assets/images/darangi_elevated.png', width: 80)
             ],
           ),
+
+          const SizedBox(height: 25),
+          InkWell(
+            onTap: () {},
+            child: Card(
+              elevation: 5,
+              surfaceTintColor: Colors.transparent,
+              child: Image.asset('assets/images/quiz_start_btn.png',
+                  width: _width * 0.85),
+            ),
+          ),
           const SizedBox(height: 15),
-          Image.asset('assets/images/parent_tab_bar.png', width: _width * 0.9),
-          const SizedBox(height: 30),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            color: Colors.white,
+            elevation: 5,
+            surfaceTintColor: Colors.transparent,
+            child: Container(
+              width: _width * 0.85,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('아직 풀지 않은 퀴즈가 남아있어요!',
+                      style: TextStyles.content12),
+                  const SizedBox(height: 10),
+                  // 1 day ago
+                  Card(
+                    margin: EdgeInsets.only(top: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    color: Colors.white,
+                    elevation: 5,
+                    surfaceTintColor: Colors.transparent,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Row(
+                            children: [
+                              Text('1일', style: TextStyles.parent18),
+                              Text(' 전', style: TextStyles.title18),
+                            ],
+                          ),
+                          Image.asset('assets/icons/arrow_down.png', width: 20),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // 2 days ago
+                  Card(
+                    margin: EdgeInsets.only(top: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    color: Colors.white,
+                    elevation: 5,
+                    surfaceTintColor: Colors.transparent,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Row(
+                            children: [
+                              Text('2일', style: TextStyles.parent18),
+                              Text(' 전', style: TextStyles.title18),
+                            ],
+                          ),
+                          Image.asset('assets/icons/arrow_down.png', width: 20),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // 3 days ago
+                  Card(
+                    margin: EdgeInsets.only(top: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    color: Colors.white,
+                    elevation: 5,
+                    surfaceTintColor: Colors.transparent,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Row(
+                            children: [
+                              Text('3일', style: TextStyles.parent18),
+                              Text(' 전', style: TextStyles.title18),
+                            ],
+                          ),
+                          Image.asset('assets/icons/arrow_down.png', width: 20),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

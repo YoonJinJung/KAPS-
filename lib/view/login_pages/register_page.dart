@@ -300,24 +300,6 @@ class _RegisterPageState extends State<RegisterPage> {
                             child: Image.asset(
                                 'assets/images/register_popup.png',
                                 width: _width * 0.9)));
-                    // AlertDialog(
-                    //   title: const Text('다랑해 시작하기'),
-                    //   content: const Text('다랑해를 시작하시겠습니까?'),
-                    //   actions: [
-                    //     TextButton(
-                    //       onPressed: () {
-                    //         Navigator.of(context).pop();
-                    //       },
-                    //       child: const Text('취소'),
-                    //     ),
-                    //     TextButton(
-                    //       onPressed: () {
-                    //         Navigator.of(context).pushNamed('/parentHome');
-                    //       },
-                    //       child: const Text('확인'),
-                    //     ),
-                    //   ],
-                    // );
                   },
                 );
               },

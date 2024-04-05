@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
+import 'package:daranghae/view/parent_diary/calendar_detail.dart';
 
 class ParentTabDiary extends StatefulWidget {
   const ParentTabDiary({Key? key}) : super(key: key);
@@ -28,8 +29,21 @@ class _ParentTabDiaryState extends State<ParentTabDiary> {
                 Image.asset('assets/images/grid_bg.png', width: _width),
                 Positioned(
                   top: 360,
-                  child: Image.asset('assets/images/calendar.png',
-                      width: _width * 0.95),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CalendarDetail()));
+                    },
+                    child: Card(
+                      elevation: 5,
+                      surfaceTintColor: Colors.transparent,
+                      child: Image.asset('assets/images/calendar.png',
+                          width: _width * 0.95),
+                    ),
+                  ),
                 ),
                 Positioned(
                   top: 850,

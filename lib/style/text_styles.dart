@@ -219,4 +219,19 @@ class TextStyles {
       fontSize: 16,
       fontWeight: FontWeight.bold,
       color: Colors.black);
+
+  static const parent18 = TextStyle(
+      fontFamily: 'TheJamsil', fontSize: 18, color: ColorStyles.parentmain);
+
+  static const whiteMedium24 = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 24,
+      fontWeight: FontWeight.w500,
+      color: Colors.white);
+
+  static const grey22underline = TextStyle(
+      fontFamily: 'TheJamsil',
+      fontSize: 22,
+      color: ColorStyles.grey4,
+      decoration: TextDecoration.underline);
 }

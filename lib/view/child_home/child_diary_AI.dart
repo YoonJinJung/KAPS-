@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
+import 'package:lottie/lottie.dart';
 
-class ChildDiaryField extends StatefulWidget {
-  const ChildDiaryField({Key? key}) : super(key: key);
+class ChildDiaryFieldAI extends StatefulWidget {
+  const ChildDiaryFieldAI({Key? key}) : super(key: key);
 
   @override
-  _ChildDiaryFieldState createState() => _ChildDiaryFieldState();
+  _ChildDiaryFieldAIState createState() => _ChildDiaryFieldAIState();
 }
 
-class _ChildDiaryFieldState extends State<ChildDiaryField> {
+class _ChildDiaryFieldAIState extends State<ChildDiaryFieldAI> {
+  int _current = 0;
+  final CarouselController _controller = CarouselController();
+
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -37,8 +42,25 @@ class _ChildDiaryFieldState extends State<ChildDiaryField> {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
+          Positioned(
+            top: 15,
+            child: SizedBox(
+              width: _width,
+              height: 110,
+              child: sliderWidget(),
+            ),
+          ),
+          Positioned(
+            top: 110,
+            right: 83,
+            child: SizedBox(
+              width: 110,
+              height: 110,
+              child: Lottie.asset('assets/lottie/darangi_loading.json'),
+            ),
+          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 170),
             child: Column(
               children: [
                 Row(
@@ -51,7 +73,7 @@ class _ChildDiaryFieldState extends State<ChildDiaryField> {
                         Text('오늘의 일기를 작성해주세요.', style: TextStyles.grey14),
                       ],
                     ),
-                    Expanded(child: SizedBox()),
+                    const Expanded(child: SizedBox()),
                     Image.asset('assets/images/darangi_shadow.png', width: 106),
                   ],
                 ),
@@ -59,13 +81,13 @@ class _ChildDiaryFieldState extends State<ChildDiaryField> {
             ),
           ),
           Positioned(
-            top: 120,
+            top: 240,
             child: Container(
               width: 400,
-              height: 530,
+              height: 470,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/field_bg.png'),
+                  image: AssetImage('assets/images/field_bg_small.png'),
                 ),
               ),
               child: Padding(
@@ -116,7 +138,7 @@ class _ChildDiaryFieldState extends State<ChildDiaryField> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      maxLines: 13,
+                      maxLines: 11,
                     ),
                     const SizedBox(height: 10),
                     ElevatedButton(
@@ -152,6 +174,36 @@ class _ChildDiaryFieldState extends State<ChildDiaryField> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget sliderWidget() {
+    return CarouselSlider(
+      carouselController: _controller,
+      items: [
+        SizedBox(
+            width: 360,
+            height: 110,
+            child: Image.asset('assets/images/AI_suggestion1.png')),
+        SizedBox(
+            width: 360,
+            height: 110,
+            child: Image.asset('assets/images/AI_suggestion2.png')),
+        SizedBox(
+            width: 360,
+            height: 110,
+            child: Image.asset('assets/images/AI_suggestion3.png')),
+      ],
+      options: CarouselOptions(
+          height: 110,
+          viewportFraction: 0.945,
+          autoPlay: true,
+          autoPlayInterval: const Duration(milliseconds: 2700),
+          onPageChanged: (index, reason) {
+            setState(() {
+              _current = index;
+            });
+          }),
     );
   }
 }

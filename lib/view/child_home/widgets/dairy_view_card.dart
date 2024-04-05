@@ -11,6 +11,7 @@ class DiaryViewCard extends StatefulWidget {
   final String from;
   final String to;
   final String relationship;
+  final bool isParent;
 
   const DiaryViewCard({
     Key? key,
@@ -20,6 +21,7 @@ class DiaryViewCard extends StatefulWidget {
     required this.from,
     required this.to,
     required this.relationship,
+    required this.isParent,
   }) : super(key: key);
 
   @override
@@ -62,76 +64,75 @@ class _DiaryViewCardState extends State<DiaryViewCard> {
         width: _width,
         height: 465,
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 3),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
+          alignment: Alignment.topCenter,
           children: [
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 80,
-                      child: Stack(
-                        children: [
-                          Padding(
-                              padding: const EdgeInsets.only(left: 50),
-                              child: Image.asset(
-                                  'assets/images/comment_bubble.png',
-                                  width: 62)),
-                          Positioned(
-                            top: 30,
-                            child: Image.asset(
-                                'assets/images/darangi_reversed.png',
-                                width: 62),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    // tts 버튼
-                    InkWell(
-                      borderRadius: BorderRadius.circular(20),
-                      onTap: () {
-                        debugPrint('TTS speaking');
-                        speak();
-                      },
-                      child:
-                          Image.asset('assets/images/TTS_btn.png', width: 147),
-                    ),
-                  ],
+                const SizedBox(height: 90),
+                // tts 버튼
+                InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: () {
+                    debugPrint('TTS speaking');
+                    speak();
+                  },
+                  child: Image.asset(
+                      widget.isParent
+                          ? 'assets/images/TTS_btn_parent.png'
+                          : 'assets/images/TTS_btn.png',
+                      width: 147),
                 ),
-                const Expanded(child: SizedBox()),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      DateFormat('yyyy.MM.dd').format(widget.date),
-                      style: TextStyles.titleMedium24,
+
+                const SizedBox(height: 25),
+                Text(
+                  widget.title,
+                  style: TextStyles.content16,
+                ),
+                const SizedBox(height: 15),
+                SizedBox(
+                  height: 265,
+                  child: SingleChildScrollView(
+                    child: Text(
+                      widget.content,
+                      style: TextStyles.title18
+                          .copyWith(fontWeight: FontWeight.w200),
+                      maxLines: 30,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    Text('받는사람: ${widget.to}',
-                        style: TextStyles.contentMedium14)
-                  ],
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 25),
-            Text(
-              widget.title,
-              style: TextStyles.content16,
+            Positioned(
+              top: 90,
+              right: 0,
+              child: Image.asset('assets/images/darangi_inner.png', width: 100),
             ),
-            const SizedBox(height: 15),
-            SizedBox(
-              height: 265,
-              child: SingleChildScrollView(
-                child: Text(
-                  widget.content + widget.content,
-                  style:
-                      TextStyles.title18.copyWith(fontWeight: FontWeight.w200),
-                  maxLines: 30,
-                  overflow: TextOverflow.ellipsis,
-                ),
+            Positioned(
+              top: 20,
+              left: 10,
+              child: InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Center(
+                          child: SizedBox(
+                              child: Image.asset(
+                                  'assets/images/comment_popup.png',
+                                  width: _width * 0.9)));
+                    },
+                  );
+                },
+                child: Image.asset(
+                    widget.isParent
+                        ? 'assets/images/parent_comment_btn.png'
+                        : 'assets/images/child_comment_btn.png',
+                    width: 250),
               ),
             ),
           ],

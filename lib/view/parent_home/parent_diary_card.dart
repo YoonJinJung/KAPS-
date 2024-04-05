@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
+import 'package:daranghae/view/parent_home/parent_diary_view.dart';
 
 class ParentDiaryCard extends StatelessWidget {
   final DateTime date;
@@ -34,16 +35,16 @@ class ParentDiaryCard extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(15),
           onTap: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => DiaryDetailPage(
-            //       date: date,
-            //       title: title,
-            //       content: content,
-            //     ),
-            //   ),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ParentDiaryViewPage(
+                  date: date,
+                  title: title,
+                  content: content,
+                ),
+              ),
+            );
           },
           child: Container(
             width: _width * 0.85,

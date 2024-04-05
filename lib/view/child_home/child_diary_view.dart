@@ -4,12 +4,12 @@ import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
 import 'package:daranghae/view/child_home/widgets/dairy_view_card.dart';
 
-class DiaryDetailPage extends StatefulWidget {
+class ChildDiaryViewPage extends StatefulWidget {
   final DateTime date;
   final String title;
   final String content;
 
-  const DiaryDetailPage({
+  const ChildDiaryViewPage({
     Key? key,
     required this.date,
     required this.title,
@@ -17,10 +17,10 @@ class DiaryDetailPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _DiaryDetailPageState createState() => _DiaryDetailPageState();
+  _ChildDiaryViewPageState createState() => _ChildDiaryViewPageState();
 }
 
-class _DiaryDetailPageState extends State<DiaryDetailPage> {
+class _ChildDiaryViewPageState extends State<ChildDiaryViewPage> {
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -62,37 +62,40 @@ class _DiaryDetailPageState extends State<DiaryDetailPage> {
               alignment: Alignment.topCenter,
               children: [
                 Container(
-                  height: 185,
+                  height: 175,
                   color: ColorStyles.childmain,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Row(
-                          children: [
-                            SizedBox(width: 15),
-                            Icon(Icons.arrow_back_ios,
+                      Row(
+                        children: [
+                          const SizedBox(width: 15),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Icon(Icons.arrow_back_ios,
                                 size: 20, color: Colors.white),
-                            Text('나가기', style: TextStyles.white16),
-                          ],
-                        ),
+                          ),
+                          const SizedBox(width: 95),
+                          Text(DateFormat('yyyy.MM.dd').format(widget.date),
+                              style: TextStyles.whiteMedium24),
+                        ],
                       ),
                       const SizedBox(height: 30),
                     ],
                   ),
                 ),
                 Positioned(
-                  top: 165,
+                  top: 150,
                   child: DiaryViewCard(
                       date: widget.date,
                       content: widget.content,
                       title: widget.title,
                       from: '이효정',
                       to: '김춘자',
-                      relationship: '할머니-손주'),
+                      relationship: '할머니-손주',
+                      isParent: false),
                 ),
               ],
             ),

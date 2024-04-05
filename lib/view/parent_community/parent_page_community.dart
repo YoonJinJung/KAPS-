@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
+import 'package:daranghae/view/parent_community/feed_ex1.dart';
 
 class CommunityPage extends StatelessWidget {
   CommunityPage({Key? key}) : super(key: key);
@@ -60,7 +61,7 @@ class CommunityPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: ColorStyles.parentAppbar,
+        backgroundColor: ColorStyles.parentSub,
         leading: Padding(
           padding: const EdgeInsets.only(left: 10),
           child: Image.asset('assets/icons/heart.png'),
@@ -196,6 +197,12 @@ class CommunityTile extends StatelessWidget {
           color: ColorStyles.grey2,
         ),
         ListTile(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const FeedEx1()),
+            );
+          },
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
             child: Column(

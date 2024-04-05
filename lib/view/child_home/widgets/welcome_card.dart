@@ -92,7 +92,7 @@ class WelcomeCard extends StatelessWidget {
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigator.of(context).pushNamed('/parentHome');
+                          Navigator.of(context).pushNamed('/childDiaryFieldAI');
                         },
                         style: ElevatedButton.styleFrom(
                           fixedSize: const Size(290, 70),

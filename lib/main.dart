@@ -9,6 +9,7 @@ import 'package:daranghae/view/home_pages/parent_navigation_bar.dart';
 import 'package:daranghae/view/parent_home/parent_tab_home.dart';
 import 'package:daranghae/view/login_pages/register_page.dart';
 import 'package:daranghae/view/parent_home/parent_page_analysis.dart';
+import 'package:daranghae/view/child_home/child_diary_AI.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         '/childTabHome': (context) => const ChildTabHome(),
         '/parentTabHome': (context) => const ParentTabHome(),
         '/childDiaryField': (context) => ChildDiaryField(),
+        '/childDiaryFieldAI': (context) => ChildDiaryFieldAI(),
         '/register': (context) => RegisterPage(),
         '/analysis': (context) => const ParentAnalysis(),
       },
