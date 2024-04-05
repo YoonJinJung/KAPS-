@@ -1,16 +1,16 @@
-# daranghae
+# Daranghae
 
-A new Flutter project.
+####Sungkyunkwan University
 
-## Getting Started
+Lee Gun / Philosophy
+Kim Heesu / Culture & Technology Convergence
+Kim Hyojung / Culture & Technology Convergence
+Song Taewon / Data Science Convergence
+Jung Yoonjin / Computer Engineering
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+This flutter project is for KAPS Hackathon.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+KAPS 사회정책문제 해커톤 어플리케이션 개발 코드입니다.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![appicon](https://github.com/YoonJinJung/KAPS-/assets/127393336/2b473ad8-7d98-40e5-be10-a8a71138751d)
