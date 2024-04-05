@@ -4,6 +4,7 @@ import 'package:daranghae/style/text_styles.dart';
 import 'package:daranghae/view/parent_home/parent_tab_home.dart';
 import 'package:daranghae/view/parent_diary/parent_tab_diary.dart';
 import 'package:daranghae/view/parent_community/parent_tab_community.dart';
+import 'package:daranghae/view/parent_setting/setting_page.dart';
 
 class ParentNavigationBar extends StatefulWidget {
   const ParentNavigationBar({Key? key}) : super(key: key);
@@ -118,8 +119,8 @@ class _ParentNavigationBarState extends State<ParentNavigationBar>
           : _selectedIndex == 1
               ? const ParentTabDiary()
               : _selectedIndex == 2
-                  ? ParentTabCommunity()
-                  : tabContainer(context, Colors.green, "Settings Tab"),
+                  ? const ParentTabCommunity()
+                  : const ParentTabSetting(),
     );
   }
 
@@ -129,12 +130,7 @@ class _ParentNavigationBarState extends State<ParentNavigationBar>
       height: MediaQuery.of(context).size.height,
       color: tabColor,
       child: Center(
-        child: Text(
-          tabText,
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
+        child: Text(tabText, style: TextStyles.contentBold16),
       ),
     );
   }

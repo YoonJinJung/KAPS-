@@ -112,7 +112,7 @@ class _ParentDiaryViewPageState extends State<ParentDiaryViewPage> {
           const SizedBox(height: 15),
           ElevatedButton(
             onPressed: () {
-              // TODO: 퀴즈 화면 이동
+              Navigator.of(context).pushNamed('todayQuiz');
             },
             style: ElevatedButton.styleFrom(
               fixedSize: const Size(180, 45),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:daranghae/style/color_styles.dart';
 import 'package:daranghae/style/text_styles.dart';
 import 'package:daranghae/view/child_home/child_tab_home.dart';
+import 'package:daranghae/view/parent_setting/setting_page.dart';
 
 class ChildNavigationBar extends StatefulWidget {
   const ChildNavigationBar({Key? key}) : super(key: key);
@@ -114,11 +115,11 @@ class _ChildNavigationBarState extends State<ChildNavigationBar>
       body: _selectedIndex == 0
           ? const ChildTabHome()
           : _selectedIndex == 1
-              ? tabContainer(context, Colors.amber, "다이어리 Tab")
+              ? tabContainer(context, ColorStyles.childBackground1, "다이어리 Tab")
               : _selectedIndex == 2
                   ? tabContainer(
-                      context, ColorStyles.childBackground1, "Settings Tab")
-                  : tabContainer(context, Colors.green, "Settings Tab"),
+                      context, ColorStyles.childBackground1, "게시판 Tab")
+                  : const ParentTabSetting(),
     );
   }
 
@@ -128,12 +129,7 @@ class _ChildNavigationBarState extends State<ChildNavigationBar>
       height: MediaQuery.of(context).size.height,
       color: tabColor,
       child: Center(
-        child: Text(
-          tabText,
-          style: const TextStyle(
-            color: Colors.white,
-          ),
-        ),
+        child: Text(tabText, style: TextStyles.contentBold16),
       ),
     );
   }

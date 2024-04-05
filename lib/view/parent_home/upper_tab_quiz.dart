@@ -117,7 +117,9 @@ class UpperTabQuiz extends StatelessWidget {
 
           const SizedBox(height: 25),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed('/todayQuiz');
+            },
             child: Card(
               elevation: 5,
               surfaceTintColor: Colors.transparent,
