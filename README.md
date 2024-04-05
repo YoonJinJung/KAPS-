@@ -1,6 +1,6 @@
 # Daranghae
 
-####Sungkyunkwan University
+#### Sungkyunkwan University
 
 Lee Gun / Philosophy
 Kim Heesu / Culture & Technology Convergence
